@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+
+  - var rand = [{name:"iphone14pro",size :"6.5inch",ranking:4},{name:"bluetooth",size:"7.0inch",ranking:8},{name:"headphones",size:"5.0",ranking:3},{name:"watch",size :"3.2inch",ranking:10}]
+
+  mixin list
+    each gadget in rand
+      div(class="row")
+        div(class="col-sm-2" onclick=`buy(${index})`)=gadget.name
+        div(class="col-sm-2" onclick=`buy(${index})`)=gadget.size
+        div(class="col-sm-2" onclick=`buy(${index})`)=gadget.ranking
+
+  div(class="container-fluid")
+    +list
+    script.
+
+     function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      };
+
+   
